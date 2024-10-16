@@ -81,11 +81,10 @@ const Home = () => {
             <h2 className="text-gray-50 text-xl">$BHM</h2>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-8 max-w-[340px] mx-auto">
             <Swiper
               slidesPerView={1}
               spaceBetween={-25}
-              freeMode={true}
               pagination={{
                 clickable: true,
               }}
@@ -94,7 +93,11 @@ const Home = () => {
             >
               {[1, 2, 3].map((e) => (
                 <SwiperSlide key={e}>
-                  <div className="max-w-[300px] bg-dark-50 rounded-3xl px-6 py-4 border border-dark">
+                  <div
+                    className={`${
+                      e == 3 && "slide"
+                    } max-w-[300px] bg-dark-50 rounded-3xl px-6 py-4 border border-dark`}
+                  >
                     <h3 className="text-xl font-semibold">
                       Share your OG Status
                     </h3>

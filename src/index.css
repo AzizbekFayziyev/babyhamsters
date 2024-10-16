@@ -42,7 +42,11 @@ a.active {
 }
 
 .animated-page {
-  animation: opacity .5s ease; 
+  animation: opacity .5s ease;
+}
+
+.slide:last-child {
+  @apply !max-w-full;
 }
 
 @keyframes opacity {
