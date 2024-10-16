@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+body,
+html {
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-dark text-white;
+  font-family: "Inter", sans-serif;
+}
+
+.cnt {
+  @apply mx-auto px-4 py-8 max-w-[420px];
+}
+
+.title {
+  @apply text-4xl font-semibold;
+  line-height: 120%;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1.5px black;
+  text-stroke: 1.5px black;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-gray;
+}
+
+/* Change the color of active dot */
+.swiper-pagination-bullet-active {
+  @apply bg-white;
+}
+
+a.active {
+  @apply opacity-100;
+}
+
+.animated-page {
+  animation: opacity .5s ease; 
+}
+
+@keyframes opacity {
+  0% {
+    opacity: .3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
