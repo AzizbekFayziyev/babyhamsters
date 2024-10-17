@@ -1,6 +1,5 @@
 import React from "react";
 import Appbar from "../components/Appbar";
-import Bg from "../components/Bg";
 
 const users = [
   {
@@ -95,8 +94,6 @@ const Liderboard = () => {
           ))}
         </ul>
       </div>
-
-      <Bg />
     </>
   );
 };

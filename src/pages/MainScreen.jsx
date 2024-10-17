@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import Bg from "../components/Bg";
 
 const MainScreen = () => {
   const navigate = useNavigate();
@@ -18,8 +17,6 @@ const MainScreen = () => {
       <div className="w-full mt-auto flex justify-center">
         <Button onClick={() => navigate("/verfy")}>Wow,let’s go!</Button>
       </div>
-
-      <Bg />
     </main>
   );
 };

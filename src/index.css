@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  @apply bg-dark text-white;
+  @apply bg-black text-white;
   font-family: "Inter", sans-serif;
 }
 
@@ -57,4 +57,13 @@ a.active {
   100% {
     opacity: 1;
   }
+}
+
+.confetti-wrapper {
+  transition: opacity 1s ease-out;
+  opacity: 1; /* Fully visible by default */
+}
+
+.confetti-wrapper.fade-out {
+  opacity: 0; /* Fade to invisible */
 }

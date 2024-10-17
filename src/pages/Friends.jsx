@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Bg from "../components/Bg";
 import Button from "../components/Button";
 import Appbar from "../components/Appbar";
 
@@ -53,7 +52,7 @@ const Friends = () => {
       <Appbar />
 
       {status ? (
-        <div className="min-h-[90dvh] mb-20 animated-page">
+        <div className="min-h-[90dvh] animated-page">
           <h2 className="text-xl font-semibold mb-6">16 friends</h2>
 
           <ul className="flex flex-col gap-7 max-h-[500px] overflow-y-auto">
@@ -87,15 +86,13 @@ const Friends = () => {
 
           <img className="mt-24" width={186} src="/logo.png" alt="logo" />
 
-          <div className="w-full mt-auto">
+          <div className="w-full mt-auto fixe">
             <Button onClick={() => setStatus(true)} isDark>
               Invite Friends
             </Button>
           </div>
         </div>
       )}
-
-      <Bg rotated />
     </>
   );
 };

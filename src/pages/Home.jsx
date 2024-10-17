@@ -1,10 +1,11 @@
 import React from "react";
-import Bg from "../components/Bg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper/modules";
 import Appbar from "../components/Appbar";
+import { useNavigate } from "react-router-dom";
+import AnimatedNumber from "../components/AnimatedNumber";
 
 const tasksData = [
   {
@@ -54,11 +55,13 @@ const rewardsData = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Appbar />
       <main className="min-h-[90vh] mb-20 animated-page">
-        <div>
+        <div className="cursor-pointer" onClick={() => navigate("/slide-1")}>
           <img
             className="absolute w-full max-w-[440px] h-[62px] top-[26px] left-1/2 z-0 -translate-x-1/2"
             src="/home-bg.png"
@@ -77,7 +80,9 @@ const Home = () => {
 
           <div className="flex items-center flex-col mt-12 gap-3">
             <img width={65} src="/logo.png" alt="logo" />
-            <h1 className="text-4xl font-bold mt-2">67,254</h1>
+            <h1 className="text-4xl font-bold mt-2">
+              <AnimatedNumber duration={2} target={67254} />
+            </h1>
             <h2 className="text-gray-50 text-xl">$BHM</h2>
           </div>
 
@@ -103,7 +108,7 @@ const Home = () => {
                     </h3>
                     <p className="mt-1">In Telegram Stories</p>
 
-                    <button className="mt-5 rounded-xl py-2 px-4 bg-white text-black">
+                    <button className="mt-5 rounded-xl py-2 px-4 bg-white text-black active:opacity-60">
                       Share
                     </button>
                   </div>
@@ -170,22 +175,6 @@ const Home = () => {
               ))}
             </ul>
           </div>
-        </div>
-
-        <div>
-          <Bg />
-          <img
-            width={110}
-            className="fixed top-[130px] left-[20px] -z-10"
-            src="/home-element.png"
-            alt="bg"
-          />
-          <img
-            width={110}
-            className="fixed top-[330px] left-[260px] -z-10"
-            src="/home-element.png"
-            alt="bg"
-          />
         </div>
       </main>
     </>
