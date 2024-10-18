@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -6,35 +6,6 @@ import { FreeMode, Pagination } from "swiper/modules";
 import Appbar from "../components/Appbar";
 import { useNavigate } from "react-router-dom";
 import AnimatedNumber from "../components/AnimatedNumber";
-
-const tasksData = [
-  {
-    icon: "/icons/tasks/1.svg",
-    title: "Be a good $BHM Fan",
-    price: "+50 BHM",
-  },
-  {
-    icon: "/icons/tasks/2.svg",
-    title: "Subscribe to $BHM X.com",
-    price: "+1,000 BHM",
-  },
-  {
-    icon: "/icons/tasks/3.svg",
-    title: "Invite 5 friends to $BHM",
-    price: "+20,000 BHM",
-    isBold: true,
-  },
-  {
-    icon: "/icons/tasks/4.svg",
-    title: "Add in Telegram name",
-    price: "+2,500 BHM",
-  },
-  {
-    icon: "/icons/tasks/5.svg",
-    title: "Subscribe to $BHM channel",
-    price: "+50 BHM",
-  },
-];
 
 const rewardsData = [
   {
@@ -55,7 +26,73 @@ const rewardsData = [
 ];
 
 const Home = () => {
+  const [tasksData, setTasksData] = useState([
+    {
+      id: 1,
+      icon: "/icons/tasks/1.svg",
+      title: "Be a good $BHM Fan",
+      price: "+50 BHM",
+      score: 50,
+      completed: false,
+    },
+    {
+      id: 2,
+      icon: "/icons/tasks/2.svg",
+      title: "Subscribe to $BHM X.com",
+      price: "+1,000 BHM",
+      score: 1000,
+      completed: false,
+    },
+    {
+      id: 3,
+      icon: "/icons/tasks/3.svg",
+      title: "Invite 5 friends to $BHM",
+      price: "+20,000 BHM",
+      isBold: true,
+      score: 20000,
+      completed: false,
+    },
+    {
+      id: 4,
+      icon: "/icons/tasks/4.svg",
+      title: "Add in Telegram name",
+      price: "+2,500 BHM",
+      score: 2500,
+      completed: false,
+    },
+    {
+      id: 5,
+      icon: "/icons/tasks/5.svg",
+      title: "Subscribe to $BHM channel",
+      price: "+50 BHM",
+      score: 50,
+      completed: false,
+    },
+  ]);
+
   const navigate = useNavigate();
+
+  const [score, setScore] = useState(67254);
+
+  const onComplete = (id) => {
+    setTasksData((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, completed: true } : task
+      )
+    );
+  };
+
+  const onClaim = (score) => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => {
+      setScore((prev) => prev + score);
+    }, 300);
+  };
 
   return (
     <>
@@ -72,21 +109,21 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="mt-24">
+        <div className="mt-20">
           <button className="relative z-10 flex gap-2 items-center font-semibold text-sm bg-primary-50 px-2 py-1.5 rounded-xl mx-auto">
             <img width={20} src="/icons/wallet.svg" alt="wallet" /> Connect
             wallet
           </button>
 
-          <div className="flex items-center flex-col mt-12 gap-3">
+          <div className="flex items-center flex-col mt-8 gap-2">
             <img width={65} src="/logo.png" alt="logo" />
             <h1 className="text-4xl font-bold mt-2">
-              <AnimatedNumber duration={2} target={67254} />
+              <AnimatedNumber duration={1.5} target={score} />
             </h1>
             <h2 className="text-gray-50 text-xl">$BHM</h2>
           </div>
 
-          <div className="mt-8 max-w-[340px] mx-auto">
+          <div className="mt-4 max-w-[340px] mx-auto">
             <Swiper
               slidesPerView={1}
               spaceBetween={-25}
@@ -117,7 +154,7 @@ const Home = () => {
             </Swiper>
           </div>
 
-          <div className="mt-5">
+          <div className="mt-2">
             <h4 className="font-semibold text-xl">Tasks</h4>
 
             <ul className="mt-4 flex flex-col gap-5">
@@ -142,9 +179,21 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <button className="rounded-3xl py-2 px-4 bg-dark-gray active:opacity-60">
-                    start
-                  </button>
+                  {task.completed ? (
+                    <button
+                      onClick={() => onClaim(task.score)}
+                      className="rounded-3xl py-2 px-4 bg-white text-black active:opacity-60"
+                    >
+                      Claim
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => onComplete(task.id)}
+                      className="rounded-3xl py-2 px-4 bg-dark-gray active:opacity-60"
+                    >
+                      Start
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>

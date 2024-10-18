@@ -61,10 +61,10 @@ const App = () => {
   ]);
 
   return (
-    <div className="cnt">
+    <div className="cnt relative">
       {/* Confetti effect */}
       {showConfetti && (
-        <div className={`fixed left-0 top-0 z-50 confetti-wrapper ${fadeOut ? "fade-out" : ""}`}>
+        <div  className={`fixed left-0 top-0 z-50 confetti-wrapper ${fadeOut ? "fade-out" : ""}`}>
           <Confetti />
         </div>
       )}

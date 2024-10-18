@@ -25,7 +25,7 @@ const Slide1 = () => {
         <h4 className="text-xl font-semibold">You've joined Telegram</h4>
       </div>
 
-      <div className="mt-4 z-10 relative grid place-content-center">
+      <div className="z-10 relative grid place-content-center">
         <img width={300} src="/diamond.webp" alt="diamond" />
         <span
           style={{ transform: "translate(-50%,-50%)" }}
@@ -35,7 +35,7 @@ const Slide1 = () => {
         </span>
       </div>
 
-      <p className="font-semibold text-4xl">years ago</p>
+      <p className="font-semibold text-4xl -mt-14 z-20">years ago</p>
 
       <p className="text-lg font-medium mt-12 mb-4">
         Your account number is #1820942515. You're in the Top 25% Telegram users

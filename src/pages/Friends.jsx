@@ -55,7 +55,7 @@ const Friends = () => {
         <div className="min-h-[90dvh] animated-page">
           <h2 className="text-xl font-semibold mb-6">16 friends</h2>
 
-          <ul className="flex flex-col gap-7 max-h-[500px] overflow-y-auto">
+          <ul className="flex flex-col gap-7 pb-36">
             {friendsData.map((friend, id) => (
               <li className="flex items-center justify-between gap-2" key={id}>
                 <div className="flex items-center gap-2">
@@ -74,7 +74,7 @@ const Friends = () => {
             ))}
           </ul>
 
-          <div className="w-full mt-8">
+          <div className="w-[calc(100%-30px)] fixed left-[15px] bottom-[80px]">
             <Button isDark>Invite Friends</Button>
           </div>
         </div>
@@ -86,7 +86,7 @@ const Friends = () => {
 
           <img className="mt-24" width={186} src="/logo.png" alt="logo" />
 
-          <div className="w-full mt-auto fixe">
+          <div className="w-[calc(100%-30px)] fixed left-[15px] bottom-[80px]">
             <Button onClick={() => setStatus(true)} isDark>
               Invite Friends
             </Button>

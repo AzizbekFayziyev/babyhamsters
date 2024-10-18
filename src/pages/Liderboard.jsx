@@ -57,7 +57,7 @@ const Liderboard = () => {
 
               <div>
                 <h4 className="text-lg font-bold">Alexandr_scherbina</h4>
-                <p className="text-gray-30 text-sm font-bold">67,254 $BHM</p>
+                <p className="text-gray-30 text-sm font-semibold">67,254 $BHM</p>
               </div>
             </div>
 
@@ -69,7 +69,7 @@ const Liderboard = () => {
           {users.map((user, id) => (
             <li
               key={id}
-              className="bg-dark-50 rounded-2xl p-4 flex items-center justify-between gap-4 mt-6"
+              className=" flex items-center justify-between gap-4 mt-6"
             >
               <div className="flex items-center gap-4">
                 <img
@@ -81,7 +81,7 @@ const Liderboard = () => {
 
                 <div>
                   <h4 className="text-lg font-bold">{user.name}</h4>
-                  <p className="text-gray-30 text-sm font-bold">{user.score}</p>
+                  <p className="text-gray-30 text-sm font-semibold">{user.score}</p>
                 </div>
               </div>
 
